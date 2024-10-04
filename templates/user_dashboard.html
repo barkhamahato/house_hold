@@ -1,0 +1,41 @@
+{% extends "user_layout.html" %}
+
+{% block content %}
+    <style>
+     .mess{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 100vw;;
+        margin-bottom: 65vh;
+        margin-top: 100px;
+     }
+     .t{
+        border-radius: 20px;
+        border: solid black;
+        background-color: white;
+        
+     }
+     a{
+      text-decoration: none;
+      color: black;
+
+     }
+     a :hover{
+      color: white;
+     }
+     .t :hover{
+      background-color: black;
+      border: solid black;
+      border-radius: 30px;
+      
+     }
+    </style>
+</head>
+<body>
+    <div class="mess">
+   <h1 class="t"><a href="/user_profile">Welcome  {{session['firstName']}}</a></h1>
+</div>
+  
+{% endblock %}

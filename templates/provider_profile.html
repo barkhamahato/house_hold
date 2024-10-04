@@ -1,0 +1,120 @@
+{% extends "provider_layout.html" %}
+
+{% block content %}
+
+	<div class="container ">
+		<h2 class="mt-3"> Provider update</h2>
+        {% with messages = get_flashed_messages()%}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert" >
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+		<form action="/provider_profile" method="post" enctype="multipart/form-data"> <!--this will help us to accept  file data like pic-->
+            {% for r in record %}
+               
+			<div class="row mt-5">
+                <div class="col">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstName" class="form-control" value="{{r[0]}}">
+                </div>
+                <div class="col">
+                    <label for="">Last  Name</label>
+                    <input type="text" name="lastName" class="form-control" value="{{r[1]}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">mobile</label>
+                    <input type="text" name="mobile" class="form-control" value="{{r[3]}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">email</label>
+                    <label for="" class="form-control btn-danger">{{r[2]}}</label>
+                </div>
+            </div>  
+           
+            <div class="row">
+                <div class="col">
+                    <label for="">address</label>
+                    <input type="text" name="address" class="form-control" value="{{r[4]}}">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        
+                        <label for="">Skill</label>
+                        <select class="form-select" name="skill" id="">
+                           
+                            <option {% if (r[5]=='Electrician')  %} selected {% endif %}>Electrician</option>
+                            <option {% if (r[5]=='Plumber')  %} selected {% endif %}>Plumber</option>
+                            <option {% if (r[5]=='Cleaner')  %} selected {% endif %}>Cleaner</option>
+                            <option {% if (r[5]=='RO')  %} selected {% endif %}>RO</option>
+                            <option {% if (r[5]=='AC')  %} selected {% endif %}>AC</option>
+                            <option {% if (r[5]=='Gardener')  %} selected {% endif %}>Gardener</option>
+                            <option {% if (r[5]=='Painter')  %} selected {% endif %}>Painter</option>
+                            <option {% if (r[5]=='Carpenter')  %} selected {% endif %}>Carpenter</option>
+                            <option {% if (r[5]=='Car Wash')  %} selected {% endif %}>Car Wash</option>
+                        </select>
+                    </div>
+                    </div>
+                
+
+                        </select>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">charges</label>
+                            <input type="text" name="charges" class="form-control" value="{{r[6]}}">
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="">experiance</label>
+                                <input type="text" name="exp" class="form-control" value="{{r[7]}}">
+                            </div>
+                
+                            <!-- <div class="col">
+                                <label for="">exp</label>
+                                <input type="text" name="exp" class="form-control" value="{{r[11]}}">
+                            </div>
+                        </div> -->
+                            <!-- <div class="row">
+                                <div class="col">
+                                    <label for="">upload you photo</label>
+                                    <input type="file" name="photo" class="form-control" value="">
+                                </div>
+                            </div> -->
+            <!-- <div class="row">
+                <div class="col">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="password"> 
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary mt-3" type="submit">update Now</button>
+                </div>
+            </div>  
+            {%endfor%}
+        </form>      
+                     
+              
+             
+    
+		
+	</div>
+    <div class="  mb-3 mt-4  ">
+        <a href="provider_logout">Logout</a>
+    </div>              
+    <div class="  mb-3   ">
+         <a href="provider_password_change">Change password</a>
+    </div> 
+    <div class="  mb-3   ">
+        <a href="provider_delete">Account delete</a>
+    </div>     
+    {% endblock %}

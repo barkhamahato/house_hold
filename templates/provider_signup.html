@@ -1,0 +1,124 @@
+{% extends "main_layout.html" %}
+
+{% block content %}
+ <style>
+    .mm{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+    }
+    
+ </style>
+
+	<div class="container mt-3 my  ">
+        <div class="row mt-3 mb-2" >
+		<h2 class="mt-5  mm"> Provider Signup</h2></div>
+        {% with messages = get_flashed_messages()%}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert" >
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+		<form action="/provider_signup" method="post" enctype="multipart/form-data"> <!--this will help us to accept  file data like pic-->
+            
+               
+			<div class="row">
+                <div class="col">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstName" class="form-control" >
+                </div>
+                <div class="col">
+                    <label for="">Last  Name</label>
+                    <input type="text" name="lastName" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">mobile</label>
+                    <input type="text" name="mobile" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">email</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col">
+                    <label for="">state</label>
+                    <select class="form-select" onchange="print_city('city', this.selectedIndex);" id="sts" name="state"></select>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col">
+                    <label for="">city</label>
+                    <select id="city" name="city" class="form-select" id=""></select>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col">
+                    <label for="">address</label>
+                    <input type="text" name="address" class="form-control">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select id="service-dropdown" name="skill" class="form-select mt-2" >
+                            <option selected disabled value="select skill">Select skill</option>
+                            <option value="plumber" >Plumber</option>
+                            <option value="electrician" >Electrician</option>
+                            <option value="cleaner" >Cleaner</option>
+                            <option value="ro_service" >RO Service</option>
+                            <option value="ac_service" >AC Service</option>
+                            <option value="gardener" >Gardener</option>
+                            <option value="painter" >Painter</option>
+                        </select>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">charges</label>
+                            <input type="text" name="charges" class="form-control">
+                        </div>
+                
+                            <div class="col">
+                                <label for="">exp</label>
+                                <input type="text" name="exp" class="form-control">
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="">upload you photo</label>
+                                    <input type="file" name="photo" class="form-control">
+                                </div>
+                            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="password"> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary mt-3" type="submit">SignUp Now</button>
+                </div>
+            </div>  
+        </form>      
+            <div class="n  mb-3   ">
+                <h4>Already signed up? <a href="provider_login">login now</a></h4>
+            </div>          
+              
+             <!-- script files -->
+        <script src="../static/js/city.js"></script>
+        <script language="javascript">
+            print_state("sts");
+        </script>
+    
+		
+	</div>
+
+    {% endblock %}

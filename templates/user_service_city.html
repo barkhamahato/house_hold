@@ -1,0 +1,103 @@
+{% extends "user_layout.html" %}
+
+{% block content %}
+<style>
+	.container-fluid{
+		margin-top: 10vh;
+
+	}
+    .mm{
+        width: 400px;
+        height :400px;
+    }
+ 
+</style>
+  
+<div class="container-fluid">
+    <div class="container border mt-3 p-4">
+        <h1>city Based Searching</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="/user_service_city" method="post">
+        
+        <div class="row">
+            <!-- <div class="col mt-4" >
+                
+                <select class="form-select" name="skill" id="">
+                    <option selected disabled>Select Your Skill</option>
+                    {% for r in sList %}
+                        <option>{{r[0]}}</option>
+                    {% endfor %}
+                </select>
+                
+            </div> -->
+            
+                <div class="col">
+                    <label for="">state</label>
+                    <select class="form-select" onchange="print_city('city', this.selectedIndex);" id="sts" name="state"></select>
+                </div>
+            
+          
+                <div class="col">
+                    <label for="">city</label>
+                    <select id="city" name="city" class="form-select" id=""></select>
+                </div>
+              
+                 <div class="col " >
+                    <label for="">skill</label>
+                    <select class="form-select" name="skill" id="">
+                        <option selected disabled>Select Your Skill</option>
+                        {% for r in sList %}
+                            <option>{{r[0]}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div> 
+                
+            <div class="col mt-4">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+        </form>
+
+        <hr>
+    </div>
+    <!-- service provider list -->
+     <div class="container border border-warning ">
+        <div class="row">
+            {%if request.method=='POST'%}
+            {%if  record%}
+            {% for r in record %}
+            <div class="col-md-4  ms-4 mb-4 mt-3 border border-2 bg-primary mm">
+               
+                <img src="../static/provider/{{r[0]}}" class="img-thumbnail  h-50 w-100 mt-3 mm" alt="">
+                <h4 > {{r[1]}}</h4>
+                <h4>{{r[4]}}</h4>
+				<a href="/user_service_view?providerEmail={{r[5]}}"><button class="btn btn-warning">view</button></a>
+                <div class="col ">
+                    <a href="/user_review?providerEmail={{r[5]}}">review</a>
+                </div>
+               
+            </div>
+            </div>
+            {% endfor %}
+            {%else%}
+                <span class="alert alert-danger">data not found</span>
+            {% endif %}
+            {% endif %}
+        </div>
+     </div>
+	</div>
+    <script src="../static/js/city.js"></script>
+    <script language="javascript">
+        print_state("sts");
+    </script> 
+    
+{% endblock %}

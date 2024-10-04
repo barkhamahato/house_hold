@@ -1,0 +1,80 @@
+{% extends "main_layout.html" %}
+
+{% block content %}
+<style>
+    .ii{
+        margin-bottom: 20vh;
+    }
+</style>
+
+	<div class="container ii">
+		<h2 class="mt-3 cn ">Signup</h2>
+        {% with messages = get_flashed_messages()%}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert" >
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+		<form action="/signup" method="post" >
+			<div class="row">
+                <div class="col">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstName" class="form-control" >
+                </div>
+                <div class="col">
+                    <label for="">Last  Name</label>
+                    <input type="text" name="lastName" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">email</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">mobile</label>
+                    <input type="text" name="mobile" class="form-control">
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col">
+                    <label for="">state</label>
+                    <select class="form-select" onchange="print_city('city', this.selectedIndex);" id="sts" name="state"></select>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col">
+                    <label for="">city</label>
+                    <select id="city" name="city" class="form-select" id=""></select>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="password"> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary mt-3" type="submit">SignUp Now</button>
+                </div>
+            </div>        
+            <div class="n  mb-3  mt-3  ">
+                <h4>Already signed up? <a href="user_login">login now</a></h4>
+            </div>          
+              
+             <!-- script files -->
+        <script src="../static/js/city.js"></script>
+        <script language="javascript">
+            print_state("sts");
+        </script>
+    
+		</form>
+	</div>
+
+    {% endblock %}

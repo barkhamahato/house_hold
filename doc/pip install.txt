@@ -1,0 +1,47 @@
+pip -> python package index
+
+PIP is a package manager for Python packages, 
+or modules if you like.
+------------------------------------------------
+install module:
+pip install module_name
+
+uninstall module:
+pip uninstall module_name
+
+------------------------------------------------
+how to check installed package?
+pip freeze  or pip list
+
+save installed module/package name in requirements.txt file
+python -m pip freeze > requirements.txt
+
+-install modules from requirements.txt file:
+python -m pip install -r requirements.txt
+
+
+
+
+
+------------------------------------------------
+Module for Web App Development:
+------------------------------------------------
+
+
+pip install flask    (web app dev)
+
+pip install flask-mail (mail send)
+
+pip install captcha    (captcha create)
+
+pip install mysql-connector-python (mysql workbench connector)
+
+-----------------------------------------------
+
+pip install matplotlib  (visualization pie / garph)
+
+
+pip install speechrecognition  (voice command)
+
+pip install pyaudio 
+

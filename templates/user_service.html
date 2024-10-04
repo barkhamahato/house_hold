@@ -1,0 +1,92 @@
+{% extends "user_layout.html" %}
+
+{% block content %}
+<style>
+	.container-fluid{
+		margin-top: 10vh;
+	}
+    .bb{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+
+    }
+    .cvc{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+</style>
+  
+<div class="container-fluid">
+    <div class="container border mt-3 p-4 bb " >
+        <h1>Skill Based Searching</h1>
+        <!-- {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %} -->
+        <form action="/user_service" method="post">
+        
+        <div class="row ">
+            <div class="col">
+                
+                <select class="form-select ms-3" name="skill" id="">
+                    <option selected disabled>Select Your Skill</option>
+                    {% for r in sList %}
+                        <option>{{r[0]}}</option>
+                    {% endfor %}
+                </select>
+                
+            </div>
+            <div class="col ">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+            <div class="col  cvc">
+                <a href="user_voice_search">voice search</a>
+            </div>
+        </div>
+        </form>
+
+        <hr>
+    </div>
+    <!-- service provider list -->
+     <div class="container">
+        <div class="row">
+            
+        {%if record1 %}
+            {% for r in record1 %}
+            <div class="col-md-4">
+                <img src="../static/provider/{{r[0]}}" class="img-thumbnail h-50 w-100" alt="">
+                <h4> {{r[1]}}</h4>
+                 
+                <a href="/user_service_view?providerEmail={{r[5]}}"><button class="btn btn-warning">view</button></a>
+                <div class="col">
+                    <a href="user_review?providerEmail={{r[5]}}">review</a>
+                 </div>
+                
+            </div> 
+            </div>
+            {% endfor %}
+            {% else %} 
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% endif %}
+        </div>
+     </div>
+	</div>
+{% endblock %}

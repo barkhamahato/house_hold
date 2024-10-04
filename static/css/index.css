@@ -1,0 +1,184 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+div.row{
+    /* background-color: rgb(169, 170, 161); */
+    border-radius: 30px;
+    margin-top: 20px;
+}
+div.col-8{
+    border: solid black;
+    border-radius: 30px;
+    
+}
+
+ul.nav{
+    /* background-color: aqua; */
+    padding-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+div.col-3{
+    /* background-color: aquamarine; */
+    align-items: center;
+    justify-content: center;
+}
+div.col-3 ul li.nav-item{
+    /* background-color: red; */
+    margin-left: 10px;
+}
+
+  /* background-color: pink; */
+  /* border: solid black; */
+  /* border-radius: 20px; */
+  
+  
+
+div.heading {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f3f3f3;
+      }
+      .header {
+          background-image: url("../image/workers2.jpg");
+          background-size: cover;
+          background-position:center ;
+          text-align: center;
+          color: white;
+          padding: 60px 0;
+          height: 50vh;
+          margin-top: 10px;
+      }
+      .header h1 {
+          font-size: 36px;
+      }
+      .header p {
+          font-size: 20px;
+          margin: 10px 0 30px;
+      }
+      .header .buttons {
+          margin: 20px 0;
+      }
+      .header .buttons a {
+          text-decoration: none;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          margin: 0 10px;
+      }
+      .header .buttons a.phone {
+          background-color: #007bff;
+      }
+      .header .buttons a.schedule {
+          background-color: #dc3545;
+      }
+      .services {
+          display: flex;
+          justify-content: space-around;
+          padding: 20px 0;
+          background-color: #fff;
+      }
+      .service {
+          text-align: center;
+          width: 150px;
+      }
+      .service img {
+          width: 200px;
+          height: 200px;
+      }
+      .service p {
+          margin-top: 10px;
+          font-size: 16px;
+          font-weight: bold;
+      }
+      .n{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+    /* new design */
+    .containeri {
+        width: 90%;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+    .servicess, .contact, .image-section {
+        margin-bottom: 2rem;
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .servicess h2, .contact h2 {
+        color: #007BFF;
+    }
+    .service-item {
+        background: #f9f9f9;
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-form input, .contact-form textarea {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .contact-form button {
+        padding: 0.75rem;
+        background: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .contact-form button:hover {
+        background: #0056b3;
+    }
+    .image-section {
+        text-align: center;
+    }
+    .image-section h2 {
+        margin-bottom: 1rem;
+    }
+    .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .image-gallery img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    @media (max-width: 768px) {
+        .container {
+            width: 95%;
+        }
+        .image-gallery {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    .rq h1{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }   
+    /* ends here */
+    /* upper page only  */
+    .servicess{
+        background-image: url(../image/workers2.jpg);
+    }
